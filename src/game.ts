@@ -1,4 +1,6 @@
 /// --- Set up a system ---
+import * as utils from "@dcl/ecs-scene-utils"
+
 
 class RotatorSystem {
   // this group will contain every entity that has a Transform component
@@ -50,12 +52,22 @@ cube.addComponent(
   })
 )
 
+
+
 let avocado = new Entity()
 avocado.addComponent(new GLTFShape("models/avocado.gltf"))
 avocado.addComponent(new Transform({ 
     position: new Vector3(3, 1, 3), 
     scale: new Vector3(10, 10, 10)
     }))
+
+avocado.addComponent(new utils.ScaleTransformComponent(
+	new Vector3(1,1,1), 
+	new Vector3(30, 30, 30), 
+	4,
+	()=>{ log("FINISHED") },
+	utils.InterpolationType.EASEOUTELASTIC
+))
 engine.addEntity(avocado)
 
 

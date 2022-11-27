@@ -1,3 +1,10 @@
+/node_modules
+npm-debug.log
+.DS_Store
+/*.env
+bin
+
+
 # Logs
 logs
 *.log
